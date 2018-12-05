@@ -1,1 +1,10 @@
 
+node{
+	stage('SCM Checkout'){
+		git 'https://github.com/hanumanad/maven'
+	}
+	stage('Compile-Package'){
+	def mvnHome = tool name: 'maven-3.5.4', type: 'maven'
+sh "${antHome}/bin/mvn war"
+        }
+}
